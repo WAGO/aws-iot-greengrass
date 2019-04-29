@@ -17,9 +17,8 @@ RUN apk update && \
     apk add tar gzip wget xz shadow libc6-compat ca-certificates iproute2 python && \
     wget $GREENGRASS_RELEASE_URL
 
-# RUN java-1.8.0 && \
+# RUN apk add openjdk8-jre && \
 #     ln -s /usr/bin/java /usr/local/bin/java8
-
 # RUN wget https://nodejs.org/dist/v6.10.2/node-v6.10.2-linux-x64.tar.xz && \
 #     tar xf node-v6.10.2-linux-x64.tar.xz && \
 #     cp node-v6.10.2-linux-x64/bin/node /usr/bin/node && \
