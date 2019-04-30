@@ -90,7 +90,7 @@ docker run -it \
 -v /home/greengrass/certs:/greengrass/certs \
 -v /home/greengrass/config:/greengrass/config \
 -p 8883:8883 \
-wagoautomation/aws-greengrass
+wagoautomation/aws-iot-greengrass
 ```
 
 The output should look like this example:
@@ -111,7 +111,7 @@ docker run --rm --init -it --name aws-iot-greengrass \
 -v /home/greengrass/config:/greengrass/config \
 -v /home/greengrass/log:/greengrass/ggc/var/log \
 -p 8883:8883 \
-wagoautomation/aws-greengrass
+wagoautomation/aws-iot-greengrass
 ```
 
 ## How to build an docker Greengrass Runtime image
