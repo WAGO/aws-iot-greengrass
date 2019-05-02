@@ -13,7 +13,18 @@ variables:
   greengrass-version: 1.8.1
 
 steps:
-- script: |
-    docker run --rm --privileged multiarch/qemu-user-static:register --reset
-    docker build -t "wagoautomation/aws-iot-greengrass:$(greengrass-version)" --build-arg "greengrass_version=$(greengrass-version)" ./build-context
-  displayName: 'Build docker image'
+- task: Docker@2
+  displayName: Login to Docker Hub
+  inputs:
+    command: login
+    containerRegistry: Dockerhub
+- script: docker run --rm --privileged multiarch/qemu-user-static:register --reset
+- task: Docker@2
+  displayName: buildAndPush
+  inputs:
+    containerRegistry: 'Dockerhub'
+    repository: 'wagoautomation / aws-iot-greengrass'
+    command: 'buildAndPush'
+    Dockerfile: './build-context/Dockerfile'
+    buildContext: './build-context'
+    tags: '$(greengrass-version)'
