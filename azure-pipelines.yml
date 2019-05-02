@@ -1,0 +1,18 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- azure-pipelines
+
+pool:
+  vmImage: 'Ubuntu-16.04'
+
+variables:
+  greengrass-version: 1.8.1
+
+steps:
+- script: |
+    docker build -t "wagoautomation/aws-iot-greengrass:$(greengrass-version)" --build-arg "greengrass_version=$(greengrass-version)" /build-context
+  displayName: 'Build docker image'
