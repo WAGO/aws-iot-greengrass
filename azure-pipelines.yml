@@ -23,12 +23,12 @@ steps:
   displayName: build
   inputs:
     repository: 'wagoautomation/aws-iot-greengrass'
-    command: 'build'
+    command: 'buildAndPush'
     arguments: --build-arg "greengrass_version=$(greengrass-version)"
     tags: $(greengrass-version)
-- task: Docker@2
-  displayName: push
-  inputs:
-    containerRegistry: 'Dockerhub'
-    command: 'push'
-    arguments: "wagoautomation/aws-iot-greengrass:$(greengrass-version)"
+# - task: Docker@2
+#   displayName: push
+#   inputs:
+#     containerRegistry: 'Dockerhub'
+#     command: 'push'
+#     tags: "wagoautomation/aws-iot-greengrass:$(greengrass-version)"
