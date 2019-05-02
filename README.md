@@ -1,3 +1,5 @@
+[![Build Status](https://dev.azure.com/WagoAutomation/aws-iot-greengrass/_apis/build/status/WAGO.aws-iot-greengrass?branchName=azure-pipelines)](https://dev.azure.com/WagoAutomation/aws-iot-greengrass/_build/latest?definitionId=1&branchName=azure-pipelines)
+
 # How to setup AWS IoT Greengrass on a Wago Device
 
 ## Prerequisites for tutorial
