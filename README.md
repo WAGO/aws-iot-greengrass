@@ -1,9 +1,9 @@
 ## Statistics Docker Hub
 
-[![Docker Hub Stars](https://img.shields.io/docker/stars/wagoautomation/aws-iot-greengrass.svg?flat&logo=docker "Docker Hub Stars")](https://hub.docker.com/r/wagoautomation/azure-iot-edge)
-[![Docker Hub Pulls](https://img.shields.io/docker/pulls/wagoautomation/aws-iot-greengrass.svg?flat&logo=docker "Docker Hub Stars")](https://hub.docker.com/r/wagoautomation/azure-iot-edge)
-[![Build Status](https://img.shields.io/docker/cloud/build/wagoautomation/aws-iot-greengrass.svg?flat&logo=docker "DockerHub Build")](https://hub.docker.com/r/wagoautomation/azure-iot-edge)
-[![Build Status](https://dev.azure.com/WagoAutomation/aws-iot-greengrass/_apis/build/status/WAGO.aws-iot-greengrass?branchName=azure-pipelines)](https://dev.azure.com/WagoAutomation/aws-iot-greengrass/_build/latest?definitionId=1&branchName=azure-pipelines)
+[![DockerHub stars](https://img.shields.io/docker/stars/wagoautomation/aws-iot-greengrass.svg?flat&logo=docker "DockerHub stars")](https://hub.docker.com/r/wagoautomation/azure-iot-edge)
+[![DockerHub pulls](https://img.shields.io/docker/pulls/wagoautomation/aws-iot-greengrass.svg?flat&logo=docker "DockerHub pulls")](https://hub.docker.com/r/wagoautomation/azure-iot-edge)
+[![DockerHub build-status](https://img.shields.io/docker/cloud/build/wagoautomation/aws-iot-greengrass.svg?flat&logo=docker "DockerHub build-status")](https://hub.docker.com/r/wagoautomation/aws-iot-greengrass/builds)
+[![DockerHub azure-piplene build-status](https://dev.azure.com/WagoAutomation/aws-iot-greengrass/_apis/build/status/WAGO.aws-iot-greengrass?branchName=azure-pipelines)](https://dev.azure.com/WagoAutomation/aws-iot-greengrass/_build/latest?definitionId=1&branchName=azure-pipelines)
 
 ## Statistics Git Hub
 
