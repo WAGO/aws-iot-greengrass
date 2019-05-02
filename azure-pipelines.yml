@@ -23,7 +23,7 @@ steps:
   displayName: buildAndPush
   inputs:
     containerRegistry: 'Dockerhub'
-    repository: 'wagoautomation / aws-iot-greengrass'
+    repository: 'wagoautomation/aws-iot-greengrass'
     command: 'buildAndPush'
     Dockerfile: './build-context/Dockerfile'
     buildContext: './build-context'
