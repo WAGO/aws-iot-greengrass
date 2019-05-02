@@ -14,5 +14,5 @@ variables:
 
 steps:
 - script: |
-    docker build -t "wagoautomation/aws-iot-greengrass:$(greengrass-version)" --build-arg "greengrass_version=$(greengrass-version)" /build-context
+    docker build -t "wagoautomation/aws-iot-greengrass:$(greengrass-version)" --build-arg "greengrass_version=$(greengrass-version)" ./build-context
   displayName: 'Build docker image'
