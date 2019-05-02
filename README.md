@@ -1,3 +1,8 @@
+[![dockeri.co](https://dockeri.co/image/wagoautomation/aws-iot-greengrass)](https://hub.docker.com/r/wagoautomation/aws-iot-greengrass)
+
+[![GitHub issues](https://img.shields.io/github/issues/WAGO/aws-iot-greengrass.svg "GitHub issues")](https://github.com/WAGO/aws-iot-greengrass/issues)
+[![GitHub stars](https://img.shields.io/github/stars/WAGO/aws-iot-greengrass.svg "GitHub stars")](https://github.com/WAGO/aws-iot-greengrass/stargazers)
+
 [![Build Status](https://dev.azure.com/WagoAutomation/aws-iot-greengrass/_apis/build/status/WAGO.aws-iot-greengrass?branchName=azure-pipelines)](https://dev.azure.com/WagoAutomation/aws-iot-greengrass/_build/latest?definitionId=1&branchName=azure-pipelines)
 
 # How to setup AWS IoT Greengrass on a Wago Device
