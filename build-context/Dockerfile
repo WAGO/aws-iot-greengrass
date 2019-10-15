@@ -4,7 +4,7 @@ LABEL maintainer = Wago <sergei.ikkert@wago.com>
 
 
 # Set ENV_VAR for Greengrass RC to be untarred inside Docker Image
-ARG greengrass_version=1.8.1
+ARG greengrass_version=1.9.3
 ARG GREENGRASS_RELEASE_URL=https://d1onfpft10uf5o.cloudfront.net/greengrass-core/downloads/${greengrass_version}/greengrass-linux-armv7l-${greengrass_version}.tar.gz
 
 COPY resources / 
