@@ -20,7 +20,5 @@ steps:
     containerRegistry: Dockerhub
 - script: |
     docker run --rm --privileged multiarch/qemu-user-static:register --reset
-    docker build -t "wagoautomation/aws-iot-greengrass:$(greengrass-version)" --build-arg "greengrass_version=$(greengrass-version)" ./build-context
-    docker tag wagoautomation/aws-iot-greengrass:$(greengrass-version) wagoautomation/aws-iot-greengrass:latest 
-    docker push wagoautomation/aws-iot-greengrass:$(greengrass-version)
-    docker push wagoautomation/aws-iot-greengrass:latest
+    docker build -t "wagoautomation/aws-iot-greengrass:$(greengrass-version).with-nodejs.8.10" --build-arg "greengrass_version=$(greengrass-version)" ./build-context
+    docker push wagoautomation/aws-iot-greengrass:$(greengrass-version).with-nodejs.8.10
