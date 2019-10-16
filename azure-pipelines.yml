@@ -21,4 +21,5 @@ steps:
 - script: |
     docker run --rm --privileged multiarch/qemu-user-static:register --reset
     docker build -t "wagoautomation/aws-iot-greengrass:$(greengrass-version).with-nodejs.8.10" --build-arg "greengrass_version=$(greengrass-version)" ./build-context
-    docker push wagoautomation/aws-iot-greengrass:$(greengrass-version).with-nodejs.8.10
+    docker tag wagoautomation/aws-iot-greengrass:$(greengrass-version).with-nodejs.8.10 dmeihwago/private:greengrass
+    docker push dmeihwago/private:greengrass    
