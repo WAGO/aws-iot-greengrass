@@ -125,20 +125,7 @@ docker run --rm --init -it --name aws-iot-greengrass \
 -p 8883:8883 \
 wagoautomation/aws-iot-greengrass
 ```
-### Lambda Runtime Installations
-By default, only the Python 3 Lambda runtime is installed. The Nodejs-6.10 and Java-1.8.0 Lambda runtimes are commented out in the Dockerfile. If you want to have support for Java or NodeJs Lambda runtimes, just remove the comment signs and build the image. (comment out following lines)  
-
-```
-# RUN apk add openjdk8-jre && \
-#     ln -s /usr/bin/java /usr/local/bin/java8
-# RUN wget https://nodejs.org/dist/v6.10.2/node-v6.10.2-linux-x64.tar.xz && \
-#     tar xf node-v6.10.2-linux-x64.tar.xz && \
-#     cp node-v6.10.2-linux-x64/bin/node /usr/bin/node && \
-#     ln -s /usr/bin/node /usr/bin/nodejs6.10```
-```
-
 ### Deploy Lambda Functions to the AWS IoT Greengrass Docker Container
-
 
 You can deploy long-lived Lambda functions to the Greengrass Docker container.
 
