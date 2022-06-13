@@ -125,44 +125,8 @@ docker run --rm --init -it --name aws-iot-greengrass \
 -p 8883:8883 \
 wagoautomation/aws-iot-greengrass
 ```
-
-## How to build an docker Greengrass Runtime image
-
-### Build docker Greengrass Runtime image on wago device
-- Clone the GitHub Repository.
-- Copy the folder "build-context" to Wago device. 
-  - (for this you can use WinSCP or any Ftp client) 
-- Start SSH Client e.g. Putty  and login.
- ```bash
-login as `root`
-password `wago`
- ```
-- Then change to the directory "build-context".
-- Finally execute following docker command. 
-
-```bash
-docker build -t "my_greengrass_tag" --build-arg "greengrass_version=1.8.1" .
-```
-
-### Build docker azure-iot-edge-runtime image on linux pc
-To build ARM images you need QEMU ARM Emulator installed see (https://www.qemu.org/) 
-The easiest way to get QEMU is :
-```bash
-docker run --rm --privileged multiarch/qemu-user-static:register --reset
-```
-For more information see: https://hub.docker.com/r/multiarch/qemu-user-static/
-
-- Clone the GitHub Repository.
-- Open directory "build-context" with linux terminal.
-- Finally execute following docker command. 
-
-```bash
-docker build -t "my_greengrass_tag" --build-arg "greengrass_version=1.8.1" .
-```
-
-
 ### Lambda Runtime Installations
-By default, only the Python 2.7 Lambda runtime is installed. The Nodejs-6.10 and Java-1.8.0 Lambda runtimes are commented out in the Dockerfile. If you want to have support for Java or NodeJs Lambda runtimes, just remove the comment signs and build the image. (comment out following lines)  
+By default, only the Python 3 Lambda runtime is installed. The Nodejs-6.10 and Java-1.8.0 Lambda runtimes are commented out in the Dockerfile. If you want to have support for Java or NodeJs Lambda runtimes, just remove the comment signs and build the image. (comment out following lines)  
 
 ```
 # RUN apk add openjdk8-jre && \
