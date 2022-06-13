@@ -9,8 +9,6 @@ ARG greengrass_version
 ENV gg_version=1.11.6
 ARG GREENGRASS_RELEASE_URL=https://d1onfpft10uf5o.cloudfront.net/greengrass-core/downloads/${greengrass_version}/greengrass-linux-armv7l-${greengrass_version}.tar.gz
 
-COPY resources / 
-
 # Insert your own interception certificate for operation behind a corporate firewall
 # COPY <yourCertificate.cer> /usr/local/share/ca-certificates/<yourCertificate.cer>
 
@@ -19,12 +17,6 @@ RUN apk update && \
     apk add curl jq tar gzip wget xz shadow libc6-compat ca-certificates iproute2 python3 && \
     wget $GREENGRASS_RELEASE_URL
 
-# RUN apk add openjdk8-jre && \
-#     ln -s /usr/bin/java /usr/local/bin/java8
-# RUN wget https://nodejs.org/dist/v6.10.2/node-v6.10.2-linux-x64.tar.xz && \
-#     tar xf node-v6.10.2-linux-x64.tar.xz && \
-#     cp node-v6.10.2-linux-x64/bin/node /usr/bin/node && \
-#     ln -s /usr/bin/node /usr/bin/nodejs6.10
     
 RUN apk del wget
 
@@ -42,13 +34,18 @@ RUN export GREENGRASS_RELEASE=$(basename $GREENGRASS_RELEASE_URL) && \
     useradd -r ggc_user && \
     groupadd -r ggc_group
 
-FROM scratch as final
-COPY --from=base / /
-
+FROM scratch as slim
 ARG greengrass_version
 ENV GG_VERSION=${greengrass_version}
-
-# Expose 8883 to pub/sub MQTT messages
+COPY --from=base / /
 EXPOSE 8883
+ENTRYPOINT [ "/greengrass-entrypoint.sh" ]
 
+FROM scratch as full
+ARG greengrass_version
+ENV GG_VERSION=${greengrass_version}
+COPY --from=slim / /
+RUN apk add openjdk8-jre nodejs && \
+    ln -s /usr/bin/java /usr/local/bin/java8
+EXPOSE 8883
 ENTRYPOINT [ "/greengrass-entrypoint.sh" ]
