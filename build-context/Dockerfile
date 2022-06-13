@@ -1,10 +1,12 @@
+ARG greengrass_version=1.11.6
 FROM arm32v7/alpine as base
 LABEL maintainer = Wago <dirk.meihoefer@wago.com>
 LABEL maintainer = Wago <sergei.ikkert@wago.com>
 
 
 # Set ENV_VAR for Greengrass RC to be untarred inside Docker Image
-ARG greengrass_version=1.8.1
+ARG greengrass_version
+ENV gg_version=1.11.6
 ARG GREENGRASS_RELEASE_URL=https://d1onfpft10uf5o.cloudfront.net/greengrass-core/downloads/${greengrass_version}/greengrass-linux-armv7l-${greengrass_version}.tar.gz
 
 COPY resources / 
@@ -14,7 +16,7 @@ COPY resources /
 
 # Install Greengrass Core Dependencies
 RUN apk update && \
-    apk add tar gzip wget xz shadow libc6-compat ca-certificates iproute2 python && \
+    apk add curl jq tar gzip wget xz shadow libc6-compat ca-certificates iproute2 python3 && \
     wget $GREENGRASS_RELEASE_URL
 
 # RUN apk add openjdk8-jre && \
@@ -42,6 +44,9 @@ RUN export GREENGRASS_RELEASE=$(basename $GREENGRASS_RELEASE_URL) && \
 
 FROM scratch as final
 COPY --from=base / /
+
+ARG greengrass_version
+ENV GG_VERSION=${greengrass_version}
 
 # Expose 8883 to pub/sub MQTT messages
 EXPOSE 8883

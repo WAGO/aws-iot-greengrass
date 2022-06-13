@@ -1,8 +1,0 @@
-#!/bin/bash
-#
-# Pre build hook for Docker Automated Build.
-#
-# This hooks modifies register qemu-*-static for all supported processors except the current one and registered binfmt_misc
-
-# prepare qemu
-docker run --rm --privileged multiarch/qemu-user-static:register --reset
