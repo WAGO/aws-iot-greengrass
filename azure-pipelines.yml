@@ -10,7 +10,7 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 variables:
-  greengrass-version: 1.9.0
+  greengrass-version: 1.11.6
 
 steps:
 - task: Docker@2
