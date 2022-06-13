@@ -41,10 +41,9 @@ COPY --from=base / /
 EXPOSE 8883
 ENTRYPOINT [ "/greengrass-entrypoint.sh" ]
 
-FROM scratch as full
+FROM slim as full
 ARG greengrass_version
 ENV GG_VERSION=${greengrass_version}
-COPY --from=slim / /
 RUN apk add openjdk8-jre nodejs && \
     ln -s /usr/bin/java /usr/local/bin/java8
 EXPOSE 8883
